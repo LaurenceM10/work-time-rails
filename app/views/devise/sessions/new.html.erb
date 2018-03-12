@@ -1,0 +1,43 @@
+<div class="form-container">
+    <div class="auth-form">
+
+        <div class="auth-form__header">
+            <span class="title-form">Inicia Sesión</span>
+        </div>
+
+
+        <div class="auth-form__content">
+            <%= form_for( resource, as: resource_name, :html => {:class => 'login-form'}, url: session_path(resource_name)) do |f| %>
+                <div class="field">
+                    <%= f.label :username %><br />
+                    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+                </div>
+
+
+                <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+
+                <div class="actions">
+                    <%= f.submit "Acceder", class: "login-button" %>
+                </div>
+            <% end %>
+        </div>
+
+
+        <div class="auth-form__footer">
+            <p class="info">¿No tienes una cuenta?</p>
+            <%= link_to "Regístrate", new_registration_path(resource_name) %><br />
+        </div>
+
+
+
+    </div>
+
+</div>

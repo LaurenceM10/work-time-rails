@@ -1,0 +1,38 @@
+.login-button, .signup-button {
+    background: linear-gradient(45deg, #45DDEE, #45AAEE);
+    border: none !important;
+    box-shadow: 1px 1px 15px #35ccff;
+
+    color: #FFFFFF !important;
+    cursor: pointer;
+
+    width: 32% !important;
+    border-radius: 25px !important;
+
+
+    padding: .6em !important;
+    font-size: .85em;
+    font-weight: 100;
+}
+
+
+.card {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 65px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+
+    overflow: hidden;
+}
+
+.quantity {
+    border-radius: 50%;
+
+    border: 1px solid #45AAEE;
+    color: #45AAEE;
+}
+
+.add-icon {
+    color: #45AAEE;
+    font-size: 4em;
+
+}

@@ -1,0 +1,50 @@
+<div class="container-dashboard-team">
+    <div class="dashboard-team-header">
+        <div class="card-profile">
+            <div class="user-avatar">
+                <div class="circle">
+                    <div class="circle">
+                        <div class="avatar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-data">
+                <span class="user-name"><%= current_user.email %></span>
+                <span class="user-job">CEO</span>
+                <div class="button edit-profile-button">Editar Perfil</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-team-body">
+
+        <div class="container-team">
+            <div class="card card-team-space add-team-card">
+                <span class="add-icon">+</span>
+                <%= link_to 'Crear espacio de trabajo'%>
+            </div>
+            <% @team.each do |user_team| %>
+                <div class="card card-team-space ">
+                    <div class="header__card-team">
+                        <span class="team-name"><%= user_team.user_id %></span>
+                    </div>
+                    <div class="body__card-team">
+                        <div class="team-members"><span class="quantity">18</span> miembros</div>
+                        <button class="visit-team"><%= link_to 'Visitar', user_team %></button>
+                    </div>
+                </div>
+                <!--<tr>-->
+                <!--<td></td>-->
+                <!--<td><%= %></td>-->
+                <!--<td><%= link_to 'Show', user_team %></td>-->
+                <!--<td><%= link_to 'Edit', edit_user_team_path(user_team) %></td>-->
+                <!--<td><%= link_to 'Destroy', user_team, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
+                <!--</tr>-->
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<%- if user_signed_in? %>
+    <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+<% end %>
