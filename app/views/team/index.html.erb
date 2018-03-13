@@ -21,12 +21,12 @@
         <div class="container-team">
             <div class="card card-team-space add-team-card">
                 <span class="add-icon">+</span>
-                <%= link_to 'Crear espacio de trabajo'%>
+                <%= link_to 'Crear espacio de trabajo', new_team_path %>
             </div>
             <% @team.each do |user_team| %>
                 <div class="card card-team-space ">
                     <div class="header__card-team">
-                        <span class="team-name"><%= user_team.user_id %></span>
+                        <span class="team-name"><%= user_team.name %></span>
                     </div>
                     <div class="body__card-team">
                         <div class="team-members"><span class="quantity">18</span> miembros</div>

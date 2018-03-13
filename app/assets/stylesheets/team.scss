@@ -339,3 +339,22 @@
         display: none;
     }
 }
+
+
+/**
+ * Create new team styles
+ */
+.artistic-container {
+    width: 100vw;
+    min-height: 100vh;
+    background: #FFFFFF;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+

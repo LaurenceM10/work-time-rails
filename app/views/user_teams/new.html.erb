@@ -1,0 +1,21 @@
+<div class="artistic-container">
+
+    <div class="circle-background circle-background--medium"></div>
+    <div class="circle-background circle-background--big"></div>
+
+    <div class="card card-new-team">
+        <div class="card-new-team__header center-elements">
+            <span class="title title-new-team">Agregar miembros</span>
+        </div>
+        <div class="card-new-team__content">
+            <%= form_for @user_team, url: {action: "create"}, html: {class: "new-team-form"} do |f| %>
+
+            <% end %>
+        </div>
+
+        <div class="card-new-team__footer">
+            <div class="continue-button">Continuar</div>
+        </div>
+
+    </div>
+</div>

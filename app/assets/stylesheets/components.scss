@@ -24,6 +24,45 @@
     overflow: hidden;
 }
 
+.card-new-team {
+    width: 50vw;
+    height: 80vh;
+}
+
+.card-new-team__header {
+    width: 100%;
+    height: 10%;
+
+    background: linear-gradient(45deg, #45DDEE, #45AAEE);
+}
+
+.card-new-team__content {
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-new-team__footer {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding: 2em;
+}
+
+.title-new-team {
+    font-size: 1.6em;
+    color: #FFFFFF;
+    text-shadow: 2px 1px 2px #45AAEE;
+}
+
 .quantity {
     border-radius: 50%;
 
@@ -35,4 +74,27 @@
     color: #45AAEE;
     font-size: 4em;
 
+}
+
+.circle-background {
+    background: linear-gradient(45deg, #00EDFF, #45AAEE);
+    border-radius: 50%;
+
+    position: absolute;
+}
+
+.circle-background--medium {
+    width: 35vh;
+    height: 35vh;
+
+    top: 10%;
+    left: -5%;
+}
+
+.circle-background--big {
+    width: 52vh;
+    height: 50vh;
+    top: 40%;
+    left: 85%;
+    transform: rotate(65deg);
 }

@@ -17,6 +17,10 @@
     overflow: hidden;
 }
 
+.auth-form-signup {
+    height: 85vh;
+}
+
 .field {
     margin-top: .8em;
 }
@@ -29,7 +33,6 @@
     width: 100%;
 }
 
-
 .auth-form__header, .auth-form__footer {
     height: 12%;
     display: flex;
@@ -40,7 +43,6 @@
 .auth-form__footer {
     background: rgba(240, 243, 245, .53);
 }
-
 
 .auth-form__footer {
     color: #45AAEE;
@@ -65,11 +67,11 @@
     align-items: center;
 }
 
-.auth-form label {
+.auth-form label, .new-team-form label {
     margin: .5em;
 }
 
-.auth-form input {
+.auth-form input, .new-team-form input, .auth-form textarea, .new-team-form textarea {
     width: 100%;
 
     margin: .5em;
@@ -81,15 +83,26 @@
 
     font-size: .8em;
     color: #555555;
+
+    transition: all .250s;
 }
 
-.auth-form input:focus {
+.auth-form input:focus, .new-team-form input:focus, .auth-form textarea:focus, .new-team-form textarea:focus {
     border: 1px solid #45AAEE;
 }
 
-.auth-form input[type="submit"] {
+.auth-form input[type="submit"], .new-team-form input[type="submit"] {
     min-width: 20%;
     margin: auto;
+}
+
+.new-team-form input[type="submit"] {
+    font-size: .9em;
+}
+
+.new-team-form textarea {
+    resize: none;
+    min-height: 10vh;
 }
 
 .form-container {
@@ -102,6 +115,6 @@
     align-items: center;
 }
 
-.login-form {
+.login-form, .new-team-form {
     width: 80%;
 }

@@ -1,5 +1,36 @@
+<div class="artistic-container">
 
-<%= form_for @team, url: {action: "create"}, html: {class: "new_team_form"} do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit "Create" %>
-<% end %>
+    <div class="circle-background circle-background--medium"></div>
+    <div class="circle-background circle-background--big"></div>
+
+    <div class="card card-new-team">
+        <div class="card-new-team__header center-elements">
+            <span class="title title-new-team">Crear nuevo espacio de trabajo</span>
+        </div>
+        <div class="card-new-team__content">
+            <%= form_for @team, url: {action: "create"}, html: {class: "new-team-form"} do |f| %>
+                <div class="field">
+                    <%= f.label :Nombre %><br />
+                    <%= f.text_field :name, autofocus: true %>
+                </div>
+
+
+                <div class="field">
+                    <%= f.label :Objetivo %><br />
+                    <%= f.text_area :objective, autofocus: true %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :Descripción %><br />
+                    <%= f.text_area :description %>
+                </div>
+
+                <div class="actions">
+                    <%= f.submit "Crear Espacio", class: "login-button" %>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+</div>
+
