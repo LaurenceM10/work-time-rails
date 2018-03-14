@@ -1,0 +1,60 @@
+<div class="container">
+    <nav class="nav" id="nav">
+        <div class="nav__header">
+            <div class="user-avatar">
+                <div class="circle">
+                    <div class="circle">
+                        <div class="avatar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-data">
+                <span class="user-name"><%= current_user.email %></span>
+                <span class="user-job">CEO</span>
+                <span class="user-job">El valor del id del equipo es: <%= @current_team.id %></span>
+            </div>
+        </div>
+        <div class="nav__body">
+            <ul class="menu">
+                <li class="menu__item"><span class="icon-home"></span> Inicio</li>
+                <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
+                <li class="menu__item"><span class="icon-tasks"></span> Tareas</li>
+                <li class="menu__item"><span class="icon-event"></span> Eventos</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <header class="header">
+            <span class="icon-menu" id="menu"></span>
+            <div class="options">
+                <div class="option-profile">
+                    <div class="avatar-options">
+                        <%- if user_signed_in? %>
+                            <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content-main">
+            <% @event.each do |event| %>
+                <div class="card card-event">
+                    <div class="card-event__header">
+
+                        <%= event.title %>
+                    </div>
+                    <div class="card-event__content">
+                        <%= event.description %>
+                        <%= event.date %>
+                    </div>
+                    <div class="card-event__footer">
+                        <div class="event-user">
+                            <div class="event-user__image"></div>
+                            <div class="event-user__username"></div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
