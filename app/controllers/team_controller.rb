@@ -4,7 +4,6 @@ class TeamController < ApplicationController
      end
 
      def new
-
           @team = Team.new
      end
 
@@ -20,18 +19,41 @@ class TeamController < ApplicationController
                     format.json {render json: @team.errors, status: :unprocessable_entity}
                end
           end
+
      end
 
      def show
           # To get the id of the current team
           @current_team = Team.find(params[:id])
-
-          # To get all the events of the team
-          @event = Event.where(:team_id => params[:id])
-
-
      end
 
+     def events
+          # To get the id of the current team
+          @current_team = Team.find(params[:id])
+          @event = Event.where(:team_id => params[:id])
+     end
+
+     # To create a event
+     def event
+          @event = Event.new
+          @event.title = params[:title].to_s
+          @event.description = params[:description].to_s
+          @event.date = Date.new
+          @event.latitude = 15.2
+          @event.longitude = 10.6
+          @event.team_id = Team.find(params[:id]).id
+          @event.user_id = current_user.id
+
+          respond_to do |format|
+               if @event.save
+                    format.html {redirect_to events_team_path, notice: 'User team was successfully created.'}
+                    format.json {render :show, status: :created, location: @event}
+               else
+                    format.html {redirect_to team_path}
+                    format.json {render json: @team.errors, status: :unprocessable_entity}
+               end
+          end
+     end
 
      private
           # Use callbacks to share common setup or constraints between actions.
@@ -42,5 +64,10 @@ class TeamController < ApplicationController
           # Never trust parameters from the scary inte rnet, only allow the white list through.
           def team_params
                params.require(:team).permit(:name, :objective, :description)
+          end
+
+          # Event form params
+          def event_params
+               params.require(:event).permit(:title, :description)
           end
 end

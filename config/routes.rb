@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # Teams Routes
-  resources :team
 
   # UserTeams Routes
   resources :user_teams
 
+  # Teams Routes
+  resources :team do
+    member do
+      get :events
+    end
+
+    member do
+      post :event
+    end
+  end
+
+  resources :events
 
 
   get 'home/index'

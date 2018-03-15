@@ -16,10 +16,10 @@
         </div>
         <div class="nav__body">
             <ul class="menu">
-                <li class="menu__item"><span class="icon-home"></span> Inicio</li>
+                <li class="menu__item"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
                 <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
                 <li class="menu__item"><span class="icon-tasks"></span> Tareas</li>
-                <li class="menu__item"><span class="icon-event"></span> Eventos</li>
+                <li class="menu__item"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
             </ul>
         </div>
     </nav>
@@ -37,24 +37,7 @@
             </div>
         </header>
         <div class="content-main">
-            <% @event.each do |event| %>
-                <div class="card card-event">
-                    <div class="card-event__header">
 
-                        <%= event.title %>
-                    </div>
-                    <div class="card-event__content">
-                        <%= event.description %>
-                        <%= event.date %>
-                    </div>
-                    <div class="card-event__footer">
-                        <div class="event-user">
-                            <div class="event-user__image"></div>
-                            <div class="event-user__username"></div>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
         </div>
     </div>
 </div>

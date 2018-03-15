@@ -1,11 +1,43 @@
+.container-events {
+    width: 100%;
+    height: 100%;
+
+    padding: 1em;
+
+    display: flex;
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+}
+
+.events-action {
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2%;
+}
+
+.add-event-button {
+    width: 10% !important;
+    padding: .5em !important;
+    outline: none;
+    border: none;
+}
+
 .card-event {
     background: #FFFFFF;
 
     display: flex;
     flex-direction: column;
 
-    width: 25%;
+    width: 20%;
     height: 45vh;
+
+    margin: 2%;
+
 }
 
 .card-event div {
@@ -15,7 +47,7 @@
 
 .card-event__header {
     height: 40%;
-    background: linear-gradient(#FFFFFF, #999999);
+    background: linear-gradient(#FFFFFF, #BBBBBB);
 
     display: flex;
     align-items: flex-end;
@@ -23,14 +55,45 @@
 }
 
 .card-event__content {
-    height: 48%;
+    height: 45%;
 }
 
 .card-event__footer {
-    height: 12%;
+    height: 15%;
     background: rgba(69, 170, 238, .08);
 
     display: flex;
     align-items: center;
 }
+
+
+.container-dialog {
+    background: rgba(0, 0, 0, .4);
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 50;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-event-dialog {
+    width: 40%;
+    height: 90vh;
+    background: #FFFFFF;
+
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 

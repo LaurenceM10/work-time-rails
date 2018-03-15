@@ -8,10 +8,9 @@
             <span class="title title-new-team">Agregar miembros</span>
         </div>
         <div class="card-new-team__content">
-            <div style="background: red;">
-                <%= form_tag(user_teams_path, method: :get) do %>
-                    <%= text_field_tag :username, params[:username] %>
-                    <%= submit_tag 'Buscar', name: nil %>
+            <div>
+                <%= form_for @user_team, url: {action: "create"}, html: {class: "new-team-form"} do |f| %>
+                    <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :email) %>
                 <% end %>
             </div>
 
