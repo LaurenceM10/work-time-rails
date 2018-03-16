@@ -71,7 +71,7 @@
     margin: .5em;
 }
 
-.auth-form input, .new-team-form input, .auth-form textarea, .new-team-form textarea {
+.auth-form input, .new-team-form input, .auth-form textarea, .new-team-form textarea  {
     width: 100%;
 
     margin: .5em;
@@ -87,7 +87,11 @@
     transition: all .250s;
 }
 
-.auth-form input:focus, .new-team-form input:focus, .auth-form textarea:focus, .new-team-form textarea:focus {
+.auth-form input:focus,
+.new-team-form input:focus,
+.auth-form textarea:focus,
+.new-team-form textarea:focus,
+.add-event-dialog__content form input:focus {
     border: 1px solid #45AAEE;
 }
 
@@ -117,4 +121,8 @@
 
 .login-form, .new-team-form {
     width: 80%;
+}
+
+.new-event-form .field {
+    width: 100%;
 }

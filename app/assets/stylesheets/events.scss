@@ -33,21 +33,21 @@
     display: flex;
     flex-direction: column;
 
-    width: 20%;
+    width: 29%;
     height: 45vh;
 
     margin: 2%;
-
+    box-shadow: 1px 1px 15px #ddd !important;
 }
 
-.card-event div {
+.card-event > div {
     width: 100%;
     padding: .5em;
 }
 
 .card-event__header {
     height: 40%;
-    background: linear-gradient(#FFFFFF, #BBBBBB);
+    background: #eeeeee;
 
     display: flex;
     align-items: flex-end;
@@ -63,8 +63,24 @@
     background: rgba(69, 170, 238, .08);
 
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+
+    font-size: .8em;
 }
+
+
+.event-user__image {
+    width: 2.2em;
+    height: 2.2em;
+
+    margin-right: .5em;
+
+    border-radius: 50%;
+    background: #aaaaaa;
+}
+
+
 
 
 .container-dialog {
@@ -91,9 +107,56 @@
     overflow-y: auto;
 
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 0 !important;
+}
+
+.add-event-dialog__header {
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(45deg, #45DDEE, #45AAEE);
+
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.add-event-dialog__content {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.add-event-dialog__content form {
+    width: 90%;
+}
+
+.add-event-dialog__content label {
+    margin: .5em;
+}
+
+.add-event-dialog__content input {
+    width: 100%;
+
+    margin: .5em;
+    padding: .5em;
+
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid #eeeeee;
+
+    font-size: .8em;
+    color: #555555;
+
+    transition: all .250s;
+}
+
+.add-event-dialog__content form .actions input {
+    width: 50%;
+}
 

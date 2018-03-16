@@ -36,7 +36,42 @@
             </div>
         </header>
         <div class="content-main">
+            <div class="container-events">
+                <div class="events-action">
+                    <button class="continue-button login-button add-event-button" id="addEvent">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+<div class="container-dialog hide-element" id="container-dialog">
+    <div class="add-event-dialog card">
+        <div class="add-event-dialog__header">
+            <div class="title title-new-team">Agregar tarea</div>
+        </div>
+        <div class="add-event-dialog__content">
+            <%= form_tag(controller: "team", action: "event", method: "post") do |f| %>
+                <div class="field">
+                    <%= label_tag :title %><br />
+                    <%= text_field_tag(:title) %>
+                </div>
+
+                <div class="field">
+                    <%= label_tag :Descripción %><br />
+                    <%= text_field_tag(:description) %>
+                </div>
+
+                <div class="field">
+                    <%= label_tag :Fecha__y__hora %><br />
+                    <%= text_field_tag(:date) %>
+                </div>
+
+                <div class="actions">
+                    <%= submit_tag("Guardar") %>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

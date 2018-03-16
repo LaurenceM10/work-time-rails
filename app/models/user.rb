@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :events
 
+  has_many :user_task
+
   validates :email, presence: true
   validates :encrypted_password, presence: true
 end

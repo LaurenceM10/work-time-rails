@@ -11,14 +11,13 @@
             <div class="user-data">
                 <span class="user-name"><%= current_user.email %></span>
                 <span class="user-job">CEO</span>
-                <span class="user-job">El valor del id del equipo es: <%= @current_team.id %></span>
             </div>
         </div>
         <div class="nav__body">
             <ul class="menu">
                 <li class="menu__item"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
                 <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
-                <li class="menu__item"><span class="icon-tasks"></span> Tareas</li>
+                <li class="menu__item"><span class="icon-tasks"></span> <%= link_to 'Tareas', tasks_team_path %></li>
                 <li class="menu__item"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
             </ul>
         </div>
@@ -52,10 +51,8 @@
                             <%= event.date %>
                         </div>
                         <div class="card-event__footer">
-                            <div class="event-user">
                                 <div class="event-user__image"></div>
-                                <div class="event-user__username"></div>
-                            </div>
+                                <div class="event-user__username"><%= User.find(event.user_id).email %></div>
                         </div>
                     </div>
                 <% end %>
@@ -66,7 +63,10 @@
 
 <div class="container-dialog hide-element" id="container-dialog">
     <div class="add-event-dialog card">
-
+        <div class="add-event-dialog__header">
+            <div class="title title-new-team">Agregar un evento</div>
+        </div>
+        <div class="add-event-dialog__content">
             <%= form_tag(controller: "team", action: "event", method: "post") do |f| %>
                 <div class="field">
                     <%= label_tag :title %><br />
@@ -78,9 +78,16 @@
                     <%= text_field_tag(:description) %>
                 </div>
 
+                <div class="field">
+                    <%= label_tag :Fecha__y__hora %><br />
+                    <%= text_field_tag(:date) %>
+                </div>
+
                 <div class="actions">
                     <%= submit_tag("Guardar") %>
                 </div>
             <% end %>
+        </div>
     </div>
 </div>
+
