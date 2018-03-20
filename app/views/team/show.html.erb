@@ -15,10 +15,11 @@
         </div>
         <div class="nav__body">
             <ul class="menu">
-                <li class="menu__item"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
+                <li class="menu__item item__selected"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
                 <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
                 <li class="menu__item"><span class="icon-tasks"></span> <%= link_to 'Tareas', tasks_team_path %></li>
                 <li class="menu__item"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
+                <li class="menu__item"><span class="icon-member"></span> <%= link_to 'Miembros', events_team_path %></li>
             </ul>
         </div>
     </nav>

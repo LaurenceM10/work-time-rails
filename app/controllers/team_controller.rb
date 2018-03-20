@@ -12,7 +12,8 @@ class TeamController < ApplicationController
 
           respond_to do |format|
                if @team.save
-                    format.html {redirect_to @team, notice: 'User team was successfully created.'}
+                    #format.html {redirect_to @team, notice: 'User team was successfully created.'}
+                    format.html {redirect_to new_user_team_path, notice: 'User team was successfully created.'}
                     format.json {render :show, status: :created, location: @team}
                else
                     format.html {render :new}
@@ -55,6 +56,31 @@ class TeamController < ApplicationController
           end
      end
 
+     def tasks
+          # To get the id of the current team
+          @current_team = Team.find(params[:id])
+          @task = Task.where(:team_id => params[:id])
+     end
+
+     # To create a event
+     def task
+          @task = Task.new
+          @task.title = params[:title].to_s
+          @task.description = params[:description].to_s
+          @task.date = Date.new
+          @task.team_id = Team.find(params[:id]).id
+
+          respond_to do |format|
+               if @task.save
+                    format.html {redirect_to tasks_team_path, notice: 'Task was successfully created.'}
+                    format.json {render :show, status: :created, location: @task}
+               else
+                    format.html {redirect_to tasks_team_path}
+                    format.json {render json: @task.errors, status: :unprocessable_entity}
+               end
+          end
+     end
+
      private
           # Use callbacks to share common setup or constraints between actions.
           def set_team
@@ -69,5 +95,10 @@ class TeamController < ApplicationController
           # Event form params
           def event_params
                params.require(:event).permit(:title, :description)
+          end
+
+          # Event form params
+          def task_params
+               params.require(:event).permit(:title, :description, :date)
           end
 end

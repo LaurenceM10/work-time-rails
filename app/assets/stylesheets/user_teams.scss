@@ -9,3 +9,149 @@
 
     color: #FFFFFF;
 }
+
+/**
+* Filter Section
+*/
+.filter-container {
+    width: 92%;
+    height: 80%;
+
+    padding: .5em;
+}
+
+.filter-list-container {
+    position: relative;
+}
+
+.header-filter {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 !important;
+}
+
+.input-filter {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.list-users {
+    width: 100%;
+
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 2px 5px 25px #dddddd;
+
+    max-height: 25vh;
+    min-width: 0;
+    overflow-y: auto;
+
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+
+.list-users::-webkit-scrollbar {
+    background: #FFFFFF;
+    width: .38em;
+    border: 1px solid #f8f8f8;
+}
+
+.list-users::-webkit-scrollbar-thumb {
+    background: #21aeff;
+    border-radius: 5em;
+}
+
+.list__item {
+    width: 100%;
+
+    padding: .5em .5em;
+    color: #21aeff;
+    border-top: 1px solid #EFEFEF;
+    font-size: .85em;
+
+    display: flex;
+}
+
+.list__item:hover {
+    background: #45AAEE;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.selected-users {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 80%;
+    background: #FFFFFF;
+
+    z-index: 1500;
+    overflow-y: auto;
+
+    margin-top: .3em;
+}
+
+.selected-users__item {
+    background: #F5F5F5;
+    border-radius: 2px;
+    padding: .3em;
+
+    margin-top: .2em;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 7vh;
+}
+
+.user-info {
+    width: 97%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.user-delete {
+    width: 3%;
+
+    cursor: pointer;
+}
+
+.selected-user__avatar {
+    width: 2em;
+    height: 2em;
+    background: #FFFFFF;
+    border-radius: 50%;
+
+    margin-right: .5em;
+
+    border: 1px solid #45AAEE;
+}
+
+.selected-user__email {
+    color: #21aeff;
+    font-size: .85em;
+}
+
+.selected-users::-webkit-scrollbar {
+    background: #FFFFFF;
+    width: .3em;
+    border: 1px solid #FFFFFF;
+}
+
+.selected-users::-webkit-scrollbar-thumb {
+    background: #CCCCCC;
+    border-radius: 5em;
+}
+
+.show {
+    display: block;
+}

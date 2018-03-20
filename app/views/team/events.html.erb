@@ -18,7 +18,8 @@
                 <li class="menu__item"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
                 <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
                 <li class="menu__item"><span class="icon-tasks"></span> <%= link_to 'Tareas', tasks_team_path %></li>
-                <li class="menu__item"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
+                <li class="menu__item item__selected"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
+                <li class="menu__item"><span class="icon-member"></span> <%= link_to 'Miembros', events_team_path %></li>
             </ul>
         </div>
     </nav>
@@ -40,22 +41,22 @@
                 <div class="events-action">
                     <button class="continue-button login-button add-event-button" id="addEvent">Agregar</button>
                 </div>
-                <% @event.each do |event| %>
-                    <div class="card card-event">
-                        <div class="card-event__header">
+                    <% @event.each do |event| %>
+                        <div class="card card-event">
+                            <div class="card-event__header">
 
-                            <%= event.title %>
-                        </div>
-                        <div class="card-event__content">
-                            <%= event.description %>
-                            <%= event.date %>
-                        </div>
-                        <div class="card-event__footer">
+                                <%= event.title %>
+                            </div>
+                            <div class="card-event__content">
+                                <%= event.description %>
+                                <%= event.date %>
+                            </div>
+                            <div class="card-event__footer">
                                 <div class="event-user__image"></div>
                                 <div class="event-user__username"><%= User.find(event.user_id).email %></div>
+                            </div>
                         </div>
-                    </div>
-                <% end %>
+                    <% end %>
             </div>
         </div>
     </div>
@@ -69,7 +70,7 @@
         <div class="add-event-dialog__content">
             <%= form_tag(controller: "team", action: "event", method: "post") do |f| %>
                 <div class="field">
-                    <%= label_tag :title %><br />
+                    <%= label_tag :Título %><br />
                     <%= text_field_tag(:title) %>
                 </div>
 

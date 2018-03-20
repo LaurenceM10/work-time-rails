@@ -17,8 +17,9 @@
             <ul class="menu">
                 <li class="menu__item"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
                 <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
-                <li class="menu__item"><span class="icon-tasks"></span> <%= link_to 'Tareas', tasks_team_path %></li>
+                <li class="menu__item item__selected"><span class="icon-tasks"></span> <%= link_to 'Tareas', tasks_team_path %></li>
                 <li class="menu__item"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
+                <li class="menu__item"><span class="icon-member"></span> <%= link_to 'Miembros', events_team_path %></li>
             </ul>
         </div>
     </nav>
@@ -40,6 +41,17 @@
                 <div class="events-action">
                     <button class="continue-button login-button add-event-button" id="addEvent">Agregar</button>
                 </div>
+                <% @task.each do |task| %>
+                    <div class="card card-task">
+                        <div class="card-task__header">
+                            <%= task.title %>
+                        </div>
+                        <div class="card-task__content">
+                            <%= task.description %>
+                            <%= task.date %>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
@@ -51,10 +63,10 @@
         <div class="add-event-dialog__header">
             <div class="title title-new-team">Agregar tarea</div>
         </div>
-        <div class="add-event-dialog__content">
+        <div class="add-event-dialog__content add-team-dialog__content">
             <%= form_tag(controller: "team", action: "event", method: "post") do |f| %>
                 <div class="field">
-                    <%= label_tag :title %><br />
+                    <%= label_tag :Título %><br />
                     <%= text_field_tag(:title) %>
                 </div>
 
@@ -65,6 +77,11 @@
 
                 <div class="field">
                     <%= label_tag :Fecha__y__hora %><br />
+                    <%= text_field_tag(:date) %>
+                </div>
+
+                <div class="field">
+                    <%= label_tag :Asignar__tarea %><br />
                     <%= text_field_tag(:date) %>
                 </div>
 

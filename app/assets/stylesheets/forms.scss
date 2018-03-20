@@ -71,7 +71,11 @@
     margin: .5em;
 }
 
-.auth-form input, .new-team-form input, .auth-form textarea, .new-team-form textarea  {
+.auth-form input,
+.new-team-form input,
+.auth-form textarea,
+.new-team-form textarea,
+.input-filter  {
     width: 100%;
 
     margin: .5em;
@@ -91,7 +95,8 @@
 .new-team-form input:focus,
 .auth-form textarea:focus,
 .new-team-form textarea:focus,
-.add-event-dialog__content form input:focus {
+.add-event-dialog__content form input:focus,
+.input-filter:focus{
     border: 1px solid #45AAEE;
 }
 

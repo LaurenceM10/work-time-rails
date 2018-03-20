@@ -8,20 +8,22 @@
             <span class="title title-new-team">Agregar miembros</span>
         </div>
         <div class="card-new-team__content">
-            <div>
-                <%= form_for @user_team, url: {action: "create"}, html: {class: "new-team-form"} do |f| %>
-                    <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :email) %>
-                <% end %>
-            </div>
+            <div class="filter-container">
+                <div class="header-filter">
+                    <label for="user-filter" class="label-filter">Elegir miembros</label>
+                    <input type="text" id="user-filter" class="input-filter">
+                </div>
+                <div class="filter-list-container">
+                    <ul class="list-users" id="list-filter-user">
+                        <% @users.each do |user| %>
+                            <li class="list__item" onclick="addUserToTeam(<% user.email.to_s %>)"><span><%= user.email %></span></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <div class="selected-users" id="selected-users">
 
-            <table>
-                <% @users.each do |user| %>
-                    <tr>
-                        <td><%= user.username %></td>
-                        <td><%= user.email %></td>
-                    </tr>
-                <% end %>
-            </table>
+                </div>
+            </div>
         </div>
 
         <div class="card-new-team__footer">
@@ -30,3 +32,43 @@
 
     </div>
 </div>
+
+<script>
+    var selectedUsers = document.getElementById('selected-users');
+
+    function addUserToTeam(email) {
+        var selectedUsersItem = document.createElement("div");
+            selectedUsersItem.className ="selected-users__item";
+
+            var userInfo = document.createElement("div");
+                userInfo.className = "user-info";
+
+                var selectedUserAvatar = document.createElement("div");
+                selectedUserAvatar.className = "selected-user__avatar";
+
+                var selectedUserEmail = document.createElement("div");
+                selectedUserEmail.className = "selected-user__email";
+                selectedUserEmail.innerHTML = email;
+
+                //Set nodes
+                userInfo.appendChild(selectedUserAvatar);
+                userInfo.appendChild(selectedUserEmail);
+
+            var userDelete = document.createElement("user-delete");
+                userDelete.className = "user-delete";
+
+                var deleteIcon = document.createElement("span");
+                deleteIcon.className = "delete-icon";
+                deleteIcon.innerHTML = "X";
+
+                userDelete.appendChild(deleteIcon);
+
+        //Set nodes
+        selectedUsers.appendChild(userInfo);
+        selectedUsers.appendChild(userDelete);
+    }
+
+    function deleteUserToTeam() {
+
+    }
+</script>

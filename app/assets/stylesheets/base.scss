@@ -17,3 +17,18 @@ body {
 .hide-element {
     display: none !important;
 }
+ .content-main {
+    height: 90vh;
+    overflow-y: auto;
+ }
+
+.content-main::-webkit-scrollbar {
+    background: #FFFFFF;
+    width: .6em;
+    border: 1px solid #eeeeee;
+}
+
+.content-main::-webkit-scrollbar-thumb {
+    background: #21aeff;
+    border-radius: 5em;
+}

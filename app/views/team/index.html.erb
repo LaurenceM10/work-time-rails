@@ -19,10 +19,12 @@
     <div class="dashboard-team-body">
 
         <div class="container-team">
-            <div class="card card-team-space add-team-card">
-                <span class="add-icon">+</span>
-                <%= link_to 'Crear espacio de trabajo', new_team_path %>
-            </div>
+            <%= link_to new_team_path, class: "card card-team-space add-team-card" do %>
+                <div class="center-elements-column">
+                    <span class="add-icon">+</span>
+                    <span>Crear espacio de trabajo</span>
+                </div>
+            <% end %>
             <% @team.each do |user_team| %>
                 <div class="card card-team-space ">
                     <div class="header__card-team">

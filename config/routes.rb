@@ -22,6 +22,14 @@ Rails.application.routes.draw do
           member do
                post :task
           end
+
+          member do
+               get :members
+          end
+
+          member do
+               post :member
+          end
      end
 
      resources :events

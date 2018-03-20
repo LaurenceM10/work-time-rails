@@ -1,5 +1,20 @@
+.item__selected {
+    background: linear-gradient(45deg, #21aeff, #45DDEE);
+    border-left: 5px solid #21aeff;
+}
+
+.item__selected a {
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+.item__selected:hover {
+    background: linear-gradient(45deg, #21aeff, #45DDEE) !important;
+}
+
+
 .login-button, .signup-button, .add-event-dialog__content .actions input {
-    background: linear-gradient(45deg, #45DDEE, #45AAEE);
+    background: linear-gradient(45deg, #21aeff, #45DDEE) !important;
     border: none !important;
     box-shadow: 1px 1px 15px #35ccff;
 
@@ -13,6 +28,12 @@
     padding: .6em !important;
     font-size: .85em;
     font-weight: 100;
+
+    transition: all .175s;
+}
+
+.login-button:hover, .signup-button:hover, .continue-button:hover, .add-event-dialog__content .actions input:hover {
+    box-shadow: 1px 1px 3px #35ccff;
 }
 
 
@@ -72,7 +93,7 @@
 
 .add-icon {
     color: #45AAEE;
-    font-size: 4em;
+    font-size: 7em;
 
 }
 
