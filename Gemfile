@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -55,4 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hirb',  '~> 0.7.3'
 gem 'devise', '~> 4.4.1'
+
+gem 'jquery-rails', '~> 4.3'
 

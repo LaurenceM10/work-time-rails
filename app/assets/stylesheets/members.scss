@@ -1,0 +1,16 @@
+.card-member {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-member__header {
+    width: 30%;
+}
+
+.card-member__avatar {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background: #dddddd;
+}

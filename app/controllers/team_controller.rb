@@ -13,7 +13,7 @@ class TeamController < ApplicationController
           respond_to do |format|
                if @team.save
                     #format.html {redirect_to @team, notice: 'User team was successfully created.'}
-                    format.html {redirect_to new_user_team_path, notice: 'User team was successfully created.'}
+                    format.html {redirect_to new_user_team_path(id: @team.id), notice: 'User team was successfully created.'}
                     format.json {render :show, status: :created, location: @team}
                else
                     format.html {render :new}
@@ -54,6 +54,10 @@ class TeamController < ApplicationController
                     format.json {render json: @team.errors, status: :unprocessable_entity}
                end
           end
+     end
+
+     def members
+          @members = Team.find(params[:id]).user
      end
 
      def tasks

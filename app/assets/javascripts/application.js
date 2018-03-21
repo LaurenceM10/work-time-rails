@@ -12,7 +12,11 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+
+
 var addEvent = document.getElementById('addEvent');
 
 //Get dialog references

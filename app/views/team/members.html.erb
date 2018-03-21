@@ -18,8 +18,8 @@
                 <li class="menu__item"><span class="icon-home"></span> <%= link_to 'Inicio', team_path %></li>
                 <li class="menu__item"><span class="icon-chat"></span> Conversaciones</li>
                 <li class="menu__item"><span class="icon-tasks"></span> <%= link_to 'Tareas', tasks_team_path %></li>
-                <li class="menu__item item__selected"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
-                <li class="menu__item"><span class="icon-member"></span> <%= link_to 'Miembros', members_team_path %></li>
+                <li class="menu__item"><span class="icon-event"></span> <%= link_to 'Eventos', events_team_path %></li>
+                <li class="menu__item item__selected"><span class="icon-member"></span> <%= link_to 'Miembros', members_team_path %></li>
             </ul>
         </div>
     </nav>
@@ -41,22 +41,13 @@
                 <div class="events-action">
                     <button class="continue-button login-button add-event-button" id="addEvent">Agregar</button>
                 </div>
-                    <% @event.each do |event| %>
-                        <div class="card card-event">
-                            <div class="card-event__header">
-
-                                <%= event.title %>
-                            </div>
-                            <div class="card-event__content">
-                                <%= event.description %>
-                                <%= event.date %>
-                            </div>
-                            <div class="card-event__footer">
-                                <div class="event-user__image"></div>
-                                <div class="event-user__username"><%= User.find(event.user_id).email %></div>
-                            </div>
+                <% @members.each do |member| %>
+                    <div class="card card-event">
+                        <div class="card-event__header">
+                            <%= member.email %>
                         </div>
-                    <% end %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
@@ -65,7 +56,7 @@
 <div class="container-dialog hide-element" id="container-dialog">
     <div class="add-event-dialog card">
         <div class="add-event-dialog__header">
-            <div class="title title-new-team">Agregar un evento</div>
+            <div class="title title-new-team">Agregar un nuevo miembro</div>
         </div>
         <div class="add-event-dialog__content">
             <%= form_tag(controller: "team", action: "event", method: "post") do |f| %>

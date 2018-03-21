@@ -1,8 +1,6 @@
 class UserTeamsController < ApplicationController
      def index
           @user_team = UserTeam.all
-
-
      end
 
      def new
@@ -14,14 +12,18 @@ class UserTeamsController < ApplicationController
                    else
                         User.all
                    end
+
+          @team_id = params[:id]
      end
 
      def create
-          @user_team = UserTeam.new(team_params)
+          @user_team = UserTeam.new
+          @user_team.user_id = params[:user_id_list]
+          @user_team.team_id = params[:team_id]
 
           respond_to do |format|
                if @user_team.save
-                    format.html {redirect_to new_team_url, notice: 'User team was successfully created.'}
+                    format.html {redirect_to team_path(:id => params[:team_id]), notice: 'User team was successfully created.'}
                     format.json {render :show, status: :created, location: @user_team}
                else
                     format.html {render :new}
@@ -38,7 +40,7 @@ class UserTeamsController < ApplicationController
 
           # Never trust parameters from the scary internet, only allow the white list through.
           def team_params
-               params.require(:user_team).permit(:user_id, :team_id)
+               params.require(:user_team).permit(:team_id, :user_id => [])
           end
 
           def user_params

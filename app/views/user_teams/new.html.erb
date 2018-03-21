@@ -16,29 +16,43 @@
                 <div class="filter-list-container">
                     <ul class="list-users" id="list-filter-user">
                         <% @users.each do |user| %>
-                            <li class="list__item" onclick="addUserToTeam(<% user.email.to_s %>)"><span><%= user.email %></span></li>
+                            <li class="list__item" id="<%= user.id %>"
+                                onclick="
+                                    addUserToTeam('<%= user.email %>', <%= user.id %>);
+                                ">
+                                <span><%= user.email %></span></li>
                         <% end %>
+
                     </ul>
                 </div>
                 <div class="selected-users" id="selected-users">
-
                 </div>
             </div>
         </div>
 
         <div class="card-new-team__footer">
-            <div class="continue-button">Continuar</div>
+            <div class="continue-button" id="continue">Continuar</div>
         </div>
 
     </div>
 </div>
 
 <script>
+
     var selectedUsers = document.getElementById('selected-users');
 
-    function addUserToTeam(email) {
+    function addUserToTeam(email, id) {
+
+
+        /**
+         * To create dynamically node elements with pure js and show in the
+         * list selected user.
+         *
+         * @type {Element}
+         */
         var selectedUsersItem = document.createElement("div");
             selectedUsersItem.className ="selected-users__item";
+            selectedUsersItem.id = id;
 
             var userInfo = document.createElement("div");
                 userInfo.className = "user-info";
@@ -54,8 +68,13 @@
                 userInfo.appendChild(selectedUserAvatar);
                 userInfo.appendChild(selectedUserEmail);
 
-            var userDelete = document.createElement("user-delete");
+            var userDelete = document.createElement("div");
                 userDelete.className = "user-delete";
+                userDelete.onclick = function () {
+                    selectedUsersItem.parentNode.removeChild(selectedUsersItem);
+
+
+                };
 
                 var deleteIcon = document.createElement("span");
                 deleteIcon.className = "delete-icon";
@@ -64,11 +83,51 @@
                 userDelete.appendChild(deleteIcon);
 
         //Set nodes
-        selectedUsers.appendChild(userInfo);
-        selectedUsers.appendChild(userDelete);
+        selectedUsersItem.appendChild(userInfo);
+        selectedUsersItem.appendChild(userDelete);
+
+        //Set all the nodes inside the selected users container
+        selectedUsers.appendChild(selectedUsersItem);
     }
 
-    function deleteUserToTeam() {
+    /**
+     * When the continue button is clicked send the elements to the controller
+     */
+    var continueButton = document.getElementById('continue');
 
+    // Event clicked handler
+    continueButton.addEventListener('click', function () {
+        getSelectedUserId();
+    });
+
+
+    /**
+     * Iterate the item selected and get the id.
+     * Then pass to the controller using Ajax
+     */
+    function getSelectedUserId() {
+        var userSelectedItems = document.querySelectorAll('.selected-users__item');
+        var listId = [];
+        var teamId = <%= @team_id %>;
+
+        for (var i = 0; i < userSelectedItems.length; i++){
+            listId.push(parseInt(userSelectedItems[i].getAttribute('id')));
+
+        }
+
+        if(listId.length > 0){
+            $.ajax({
+                url : "/user_teams",
+                type : "post",
+                data : { user_id_list: JSON.stringify(listId[0]), team_id : JSON.stringify(teamId) },
+                success: function () {
+                    alert("Hola");
+                }
+            });
+        } else {
+            alert("Debes elegir al menos un miembro");
+        }
+
+        //alert("user_id: " + listId[0] + " - - - - team_id: " + teamId);
     }
 </script>
